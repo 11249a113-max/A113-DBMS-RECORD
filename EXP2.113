@@ -1,0 +1,63 @@
+
+SQL> insert into newdetail values ('&regno','&name','&dob','&gender','&coursename','&year','&department');
+Enter value for regno: A113
+Enter value for name: harikrishna
+Enter value for dob: 15-AUG-2006
+Enter value for gender: M
+Enter value for coursename: B.E
+Enter value for year: 3
+Enter value for department: CSE
+old   1: insert into newdetail values ('&regno','&name','&dob','&gender','&coursename','&year','&department')
+new   1: insert into newdetail values ('A113','harikrishna','15-aug-2006','m','B.E','3','CSE')
+
+1 row created.
+
+SQL> select * from newdetail
+  2
+SQL> select * from newdetail;
+
+REGNO      NAME            DOB       G COURSENAME                 YEAR
+---------- --------------- --------- - -------------------- ----------
+DEPARTMENT
+----------
+11249A113  harikrishna         15-aug-06 f B.E                           3
+CSE(AIML)
+
+A113      harikrishna        15-aug-06 f B.E                           3
+CSE
+
+
+SQL> insert into newdetail values ('&regno','&name','&dob','&gender','&coursename','&year','&department')
+  2  ;
+Enter value for regno: A113
+Enter value for name: gnanesh
+Enter value for dob: 26-dec-2006
+Enter value for gender: m
+Enter value for coursename: B.E
+Enter value for year: 3
+Enter value for department: CSE
+old   1: insert into newdetail values ('&regno','&name','&dob','&gender','&coursename','&year','&department')
+new   1: insert into newdetail values ('A103','gnanesh','26-dec-2006','m','B.E','3','CSE')
+
+1 row created.
+
+SQL> select * from student;
+
+no rows selected
+
+SQL> select * from newdetail
+  2
+SQL> select * from newdetail;
+
+REGNO      NAME            DOB       G COURSENAME                 YEAR
+---------- --------------- --------- - -------------------- ----------
+DEPARTMENT
+----------
+11249A113  harikrishna          15-aug-06 m B.E                           3
+CSE(AIML)
+
+A103               26-dec-06 m B.E                           3
+CSE
+
+A113      harikrishna           15-dec-06 m  B.E                           3
+CSE
