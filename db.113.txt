@@ -1,0 +1,131 @@
+1.SQL> create table students
+  2  (
+  3  student_id number(5) primary key,
+  4  student_name varchar2(30),
+  5  department varchar2(20),
+  6  marks number(3)
+  7  );
+Table created.
+SQL> insert into students values (101,'hari','cse',85);
+
+1 row created.
+
+SQL> insert into students values (102,'balaji','cse',95);
+
+1 row created.
+
+SQL> insert into students values (103,'teja','cse',25);
+
+1 row created.
+
+SQL> insert into students values (104,'mahesh','cse',35);
+
+1 row created.
+
+SQL> insert into students values (105,'niteesh','cse',65);
+
+1 row created.
+
+SQL> insert into students values (106,'gnanesh','cse',55);
+
+1 row created.
+
+SQL> select count
+  2  ;
+SQL> select count(*) as total_students
+  2  from students;
+
+TOTAL_STUDENTS
+--------------
+             6
+
+SQL> select sum(marks) as total_marks
+  2  from students;
+
+TOTAL_MARKS
+-----------
+        360
+
+SQL> select avg(marks) as average_marks
+  2  from students;
+
+AVERAGE_MARKS
+-------------
+           60
+
+SQL> select max(marks) as highest_mark
+  2  from students;
+
+HIGHEST_MARK
+------------
+          95
+
+SQL> select min(marks) as lowest_mark
+  2  from students;
+
+LOWEST_MARK
+-----------
+         25
+
+SQL> select department,avg(marks) as avg_marks
+  2  from student
+  3  group by  department;
+group by  department
+          *
+ERROR at line 3:
+ORA-00904: "DEPARTMENT": invalid identifier
+
+
+SQL> select department,avg(marks) as avg_marks
+  2  from students
+  3  group by  department;
+
+DEPARTMENT            AVG_MARKS
+-------------------- ----------
+cse                          60
+
+SQL> select department, count(*) as total_students
+  2  from students
+  3  group by department;
+
+DEPARTMENT           TOTAL_STUDENTS
+-------------------- --------------
+cse                               6
+
+SQL> select department,max(marks) as max_marks
+  2  from students
+  3  group by department;
+
+DEPARTMENT            MAX_MARKS
+-------------------- ----------
+cse                          95
+
+SQL> select department, avg(marks) as ave_marks
+  2  from students
+  3  group by department
+  4  having count(*) > 1;
+
+DEPARTMENT            AVE_MARKS
+-------------------- ----------
+cse                          60
+
+SQL> select department, count(*) as no_of_students,
+  2         avg(marks) as avg_marks, max(marks) as highest_mark
+  3  from students
+  4  group by department
+  5  having avg(marks) >80;
+
+no rows selected
+
+SQL> select * from students;
+
+STUDENT_ID STUDENT_NAME                   DEPARTMENT                MARKS
+---------- ------------------------------ -------------------- ----------
+       101 hari                           cse                          85
+       102 balaji                         cse                          95
+       103 teja                           cse                          25
+       104 mahesh                         cse                          35
+       105 niteesh                        cse                          65
+       106 gnanesh                        cse                          55
+
+6 rows selected.
